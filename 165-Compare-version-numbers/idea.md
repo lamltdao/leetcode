@@ -1,0 +1,1 @@
+The idea is to split each version into numbers separated by '.' and compare them (if one version has more dots than the other, compare them with 0)
