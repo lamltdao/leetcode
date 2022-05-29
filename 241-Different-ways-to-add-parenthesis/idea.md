@@ -8,3 +8,4 @@
             for n1 in arr_1:
                 for n2 in arr_2:
                     final_ans.append(helper(n1,n2,components[i]))
+- Optimize using DP
