@@ -1,0 +1,1 @@
+- Check in sequence: 1000 (M), 900 (CM), 500 (D), 400 (CD), 100(C), 90(XC), 50(L), 40(XL), 10(X), 9(IX), 5, 4, 1. Use hashtable (num: Roman) and arr ([1000,900,...,1]) for automation
