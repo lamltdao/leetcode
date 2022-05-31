@@ -1,0 +1,1 @@
+- When breaking n, there are 4 options: (n-k) * k, break(n-k) * k, (n-k) * break(k), break(n-k) * break(k)
