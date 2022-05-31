@@ -1,0 +1,2 @@
+- C1: Use a dictionary to store char: idx of element in the substring. Also use a variable last to mark the last position deleted whenever we encounter a duplicate char.
+- C2: Sliding window: Init the window to be the first substring without repeating chars. Then, increment left ptr by 1, and keep incrementing right ptr as long as there is no repeating chars
