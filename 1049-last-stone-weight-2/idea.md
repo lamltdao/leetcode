@@ -1,0 +1,1 @@
+- The weight of the remaining stone will be minimized when we have 2 parts with minimum difference (Just combine two stones from each list until we have 1 or 0 stone left). Thus, the problem can be deduced as Knapsack with Weight = sum//2
