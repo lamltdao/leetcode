@@ -1,0 +1,1 @@
+- Sort array. For each element i of the array, use 2 ptrs to find 2 elements a, b s.t the sum of 3 is closest to target, i.e a+b is closest to target - arr[i]
