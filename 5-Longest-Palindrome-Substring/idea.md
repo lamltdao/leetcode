@@ -1,0 +1,1 @@
+- dp[i][j] = 1 if s[i->j] is a palindrome. Use l and r to mark the start and end of longest palindrome substring. l and r may change whenever s[i] == s[j] and dp[i+1][j-1] = 1
