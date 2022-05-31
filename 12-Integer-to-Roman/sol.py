@@ -1,8 +1,6 @@
 class Solution:
     def intToRoman(self, num: int) -> str:
-        # 1 <= num <= 3999
         res = ''
-        table = OrderedDict
         table = {
             1000: 'M',
             900: 'CM', 
