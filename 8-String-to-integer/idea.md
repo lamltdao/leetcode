@@ -1,0 +1,1 @@
+- EDGE CASE: no digits after '+' / '-', digits come after non-digit chars (which should return 0)
