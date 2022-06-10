@@ -1,0 +1,3 @@
+- First loop: Store {num: OrderedDict(indices)}
+- Second loop: Check all num which are in correct positions to calc bulls, remove that pos from the data structure, also put all num that are not in correct positions to a list wrong_pos[]
+- Third loop: Go through wrong_pos[], remove index in the first pos from the data structure for each num in wrong position"
