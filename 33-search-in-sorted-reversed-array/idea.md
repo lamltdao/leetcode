@@ -1,0 +1,2 @@
+- Despite the rotation, there will always be 1 sorted half of the range [l,r]
+- Target is inside the sorted half [l,r] if target > l and target < r, otherwise it is outside."
