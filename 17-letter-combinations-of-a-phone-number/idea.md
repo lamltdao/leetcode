@@ -1,0 +1,1 @@
+- Hash table {number: [characters]} (according to the phone) and backtracking
