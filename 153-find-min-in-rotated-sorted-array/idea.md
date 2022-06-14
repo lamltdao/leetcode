@@ -1,0 +1,3 @@
+- Despite the rotation, there will always be 1 sorted half of the range [l,r]
+- First check if there's rotation (arr[-1] > arr[0])
+- Then in while loop, check if minimum is mid or minimum is to the right of mid, otherwise check each sorted half."
