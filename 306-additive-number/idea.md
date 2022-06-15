@@ -1,0 +1,1 @@
+- Backtracking, passing an array indices[] to mark numbers in the sequence. Remember to check leading zeros before appending idx i to indices

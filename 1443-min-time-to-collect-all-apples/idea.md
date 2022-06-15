@@ -1,0 +1,2 @@
+- Convert input into graph. 
+- Use dfs(vertex) -> (time, has_apple), where time is the total number of time to walk from vertex to collect apples and return back to vertex, has_apple is whether the subtree has at least an apple. Note that if dfs(vertex.neighbor).has_apple == true, then dfs(vertex).time += dfs(vertex.neighbor).time + 2 (Since we need 2 seconds to walk back and forth between vertex and its neighbor)
