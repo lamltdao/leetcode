@@ -1,14 +1,5 @@
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
-        """
-        (nrow-1,0)
-        ...
-        (0,0)
-        (0,1)
-        (1,2)
-        ..
-        (0,2)
-        """
         nrow = len(mat)
         ncol = len(mat[0])
         def helper(start_r, start_c):
