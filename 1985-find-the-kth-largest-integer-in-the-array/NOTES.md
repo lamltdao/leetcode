@@ -1,1 +1,4 @@
-​
+- Create a mapping (num, str(num)) and a temp array
+- for each string in array nums, update mapping, add int value to array
+- sort array
+- return mapping[array[-k]]
