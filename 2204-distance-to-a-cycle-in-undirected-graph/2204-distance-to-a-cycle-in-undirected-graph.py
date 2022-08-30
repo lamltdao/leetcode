@@ -2,7 +2,7 @@ from collections import deque
 class Solution:
     def distanceToCycle(self, n: int, edges: List[List[int]]) -> List[int]:
         """
-        - find the cycle: dfs + prev[]
+        FIND THE CYCLE USING DFS + prev[]
         """
         n = len(edges)
         cycle_nodes = set()
@@ -32,7 +32,9 @@ class Solution:
         while tmp != prev_cycle_detected_at:
             cycle_nodes.add(tmp)
             tmp = prev[tmp]
-        # find distance. Use bfs for each node in cycle
+        """
+        FIND MIN DISTANCE BY BFS EACH NODE IN CYCLE
+        """
         INF = 10**5+1
         dist = [INF for _ in range(n)]
         for u in cycle_nodes:
