@@ -1,1 +1,1 @@
-​
+Note: an island is closed if there does not exist a cell on the edge (r = 0 or r = nrow-1 or c = 0 or c = ncol-1)
