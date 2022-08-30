@@ -1,1 +1,1 @@
-​
+Basically Kruskal algo using Union-Find. Here, for each edge, if adding it to MST creates a cycle ( check if find(e0) == find(e1) ), return that edge. Otherwise, add it to MST (union)
