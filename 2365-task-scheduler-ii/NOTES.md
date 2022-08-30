@@ -1,5 +1,5 @@
 Create next_task_time {task type: time}, the time to execute the next task of type [task type], and cur_time, the current time before executing the next task.
-```python
+```
 for each task t:
 if t in next_task_time, i.e t is the next task of its type to be executed:
 cur_time = max(cur_time, next_task_time[t]) # forward cur_time to the time to execute task t
