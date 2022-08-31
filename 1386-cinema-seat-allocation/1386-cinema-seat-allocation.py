@@ -29,10 +29,14 @@ class Solution:
                 num_cant_seat += 0
             else:
                 num_cant_seat += 1
-        for rseat in reservedSeats:
+        for i in range(len(reservedSeats)+1):
+            if i == len(reservedSeats):
+                check()
+                break
+            rseat = reservedSeats[i]
             row, num = rseat[0], rseat[1]
             if row != tmp_row:
-                # about to change row. Check prev row how many seat it has
+                # row changed. Check prev row how many seat it has
                 check()
                 tmp_row = row
                 tmp_row_reserved_types = set()
@@ -46,6 +50,5 @@ class Solution:
                 tmp_row_reserved_types.add(3)
             elif num == 8 or num == 9:
                 tmp_row_reserved_types.add(4)
-        check()
         return 2*n - num_cant_seat
                 
