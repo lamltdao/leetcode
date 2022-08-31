@@ -11,11 +11,6 @@ class Item:
             return self.char > other.char
 class Solution:
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
-        """
-        prioritize char with more occu
-
-        avoid 3 consecutive chars by introducing var prev_char + prev_char_count + pop until new char + push back to pq
-        """
         pq = []
         heapify(pq)
         if a > 0:
@@ -24,20 +19,17 @@ class Solution:
             heappush(pq, Item('b', b))
         if c > 0:
             heappush(pq, Item('c', c))
-        prev_char = None
-        prev_char_count = 0
         ans = ''
         while len(pq) > 0:
             item = heappop(pq)
             char, freq = item.char, item.freq
-            if prev_char is None or prev_char != char:
+            # different char from the latest char added
+            if len(ans) == 0 or ans[-1] != char:
                 num_pop = min(2, freq)
                 ans += char * num_pop
-                prev_char = char
-                prev_char_count = num_pop
                 if freq - num_pop > 0:
                     heappush(pq, Item(char, freq-num_pop))
-            else: # prev_char == char
+            else: # ans[-1] == char
                 # add one char of different char
                 if len(pq) > 0:
                     i = heappop(pq)
@@ -46,8 +38,7 @@ class Solution:
                     f -= 1
                     if f > 0:
                         heappush(pq, Item(c,f))
-                    prev_char = c
-                    prev_char_count = 1
+                    # push the char with most occurrence back in pq, as it is not added this time
                     heappush(pq, Item(char, freq))
         return ans                    
                             
