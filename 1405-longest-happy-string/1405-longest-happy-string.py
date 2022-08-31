@@ -39,7 +39,7 @@ class Solution:
                     if f > 0:
                         heappush(pq, Item(c,f))
                     # push the char with most occurrence back in pq, as it is not added this time
-                    heappush(pq, Item(char, freq))
+                    heappush(pq, item)
         return ans                    
                             
         
