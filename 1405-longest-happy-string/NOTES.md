@@ -1,1 +1,1 @@
-Idea: Keep adding as many as possible the char with the current highest occurrences. Note that to avoid "aaa", we add 1 char of the second highest occurrence char instead.
+​
