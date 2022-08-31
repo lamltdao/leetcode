@@ -17,38 +17,33 @@ class Solution:
         
         sort reservedSeats by row numbers
         """
-        reservedSeats.sort(key = lambda s: s[0])
-        tmp_row = reservedSeats[0][0]
-        tmp_row_reserved_types = set()
         num_cant_seat = 0
-        def check():
+        reserved_types = {}
+        def check(row):
+            row_reserved_type = reserved_types[row]
             nonlocal num_cant_seat
-            if (1 in tmp_row_reserved_types and 3 in tmp_row_reserved_types) or (2 in tmp_row_reserved_types and 4 in tmp_row_reserved_types) or (2 in tmp_row_reserved_types and 3 in tmp_row_reserved_types):
+            if (1 in row_reserved_type and 3 in row_reserved_type) or (2 in row_reserved_type and 4 in row_reserved_type) or (2 in row_reserved_type and 3 in row_reserved_type):
                     num_cant_seat += 2
-            elif len(tmp_row_reserved_types) == 0 or (0 in tmp_row_reserved_types and len(tmp_row_reserved_types) == 1):
+            elif len(row_reserved_type) == 0 or (0 in row_reserved_type and len(row_reserved_type) == 1):
                 num_cant_seat += 0
             else:
                 num_cant_seat += 1
-        for i in range(len(reservedSeats)+1):
-            if i == len(reservedSeats):
-                check()
-                break
+        for i in range(len(reservedSeats)):
             rseat = reservedSeats[i]
             row, num = rseat[0], rseat[1]
-            if row != tmp_row:
-                # row changed. Check prev row how many seat it has
-                check()
-                tmp_row = row
-                tmp_row_reserved_types = set()
+            if row not in reserved_types:
+                reserved_types[row] = set()
             if num == 1 or num == 10:
-                tmp_row_reserved_types.add(0)
+                reserved_types[row].add(0)
             elif num == 2 or num == 3:
-                tmp_row_reserved_types.add(1)
+                reserved_types[row].add(1)
             elif num == 4 or num == 5:
-                tmp_row_reserved_types.add(2)
+                reserved_types[row].add(2)
             elif num == 6 or num == 7:
-                tmp_row_reserved_types.add(3)
+                reserved_types[row].add(3)
             elif num == 8 or num == 9:
-                tmp_row_reserved_types.add(4)
+                reserved_types[row].add(4)
+        for row in reserved_types.keys():
+            check(row)
         return 2*n - num_cant_seat
                 
