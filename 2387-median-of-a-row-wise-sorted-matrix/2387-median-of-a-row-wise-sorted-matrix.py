@@ -4,7 +4,7 @@ class Solution:
         nrow = len(grid)
         ncol = len(grid[0])
         half = (nrow * ncol) // 2 + 1
-        l = 0
+        l = 1
         r = 10**6
         while l < r:
             m = (l+r) // 2
