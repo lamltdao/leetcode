@@ -12,9 +12,11 @@ class Solution:
                 d[c] = 0
             d[c] += 1
         freqs = [[] for _ in range(len(s)+1)]
+        sorted_freqs = set()
         for c in d.keys():
             freqs[d[c]].append(c)
-        sorted_freqs = list(set(d.values()))
+            sorted_freqs.add(d[c])
+        sorted_freqs = list(sorted_freqs)
         sorted_freqs.sort(reverse=True)
         ans = 0
         for i in sorted_freqs:
