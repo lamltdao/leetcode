@@ -15,7 +15,6 @@ class Solution:
         for c in d.keys():
             freqs[d[c]].append(c)
         sorted_freqs = list(set(d.values()))
-
         sorted_freqs.sort(reverse=True)
         ans = 0
         for i in sorted_freqs:
