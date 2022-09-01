@@ -1,8 +1,7 @@
 class Solution:
     def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
         """
-        for r in roads:
-            network_ranks(i,j) = deg(i) + deg(j) - (1 if i,j in roads else 0)
+        NOTE: network_rank(i,j) = deg(i) + deg(j) - (1 if i,j in roads else 0)
         """
         deg = [0 for _ in range(n)]
         is_road = [[False for _ in range(n)] for _ in range(n)]
