@@ -6,7 +6,7 @@ class Solution:
         every idx:
             num b before it
             num a after it
-        => ans = min(min(num_b[i], num_a[i])) for i in range(len(s))
+        => ans = min(min(num_b[i] + num_a[i])) for i in range(len(s))
         """
         num_a = [0 for _ in s] # num_a[i]: # of a after i
         num_b = [0 for _ in s] # num_b[i]: # of b before i
