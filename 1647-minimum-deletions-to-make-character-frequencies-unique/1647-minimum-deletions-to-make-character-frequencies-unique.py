@@ -14,8 +14,11 @@ class Solution:
         freqs = [[] for _ in range(len(s)+1)]
         for c in d.keys():
             freqs[d[c]].append(c)
+        sorted_freqs = list(set(d.values()))
+
+        sorted_freqs.sort(reverse=True)
         ans = 0
-        for i in range(len(freqs)-1, 0, -1):
+        for i in sorted_freqs:
             if len(freqs[i]) > 1:
                 num_type_reduced = len(freqs[i]) - 1
                 num_char_reduced = 0
