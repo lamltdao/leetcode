@@ -5,7 +5,6 @@ class Solution:
         
         - store freqs in dict
         freqs[i] = true if there is char with freq i, i > 0
-        go from smallest to highest freq
         """
         d = {}
         for c in s:
