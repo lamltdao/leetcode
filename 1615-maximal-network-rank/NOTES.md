@@ -1,0 +1,1 @@
+network_rank(i,j) = deg(i) + deg(j) - (1 if i,j in roads else 0)
