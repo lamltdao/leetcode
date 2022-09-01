@@ -1,1 +1,1 @@
-​
+Time Complexity: number keeps dividing until 1, i.e s keeps popping 0 from right until 1, thus O(len(s))
