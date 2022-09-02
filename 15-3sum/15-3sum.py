@@ -4,7 +4,8 @@ class Solution:
         """
         sort nums O(n log n)
         for each num at idx i:
-            use two sum ii to find j,k such that j<k, j,k > i whose values sum up to -nums[i] O(n^2).
+            use two sum ii to find j,k such that j<k, j,k > i whose values sum up to -nums[i] 
+        O(n^2)
         """
         nums.sort()
         for i in range(len(nums)-2):
