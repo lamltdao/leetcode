@@ -10,7 +10,6 @@ class Solution:
         while r < len(s):
             temp_set.remove(s[l])
             l += 1
-            r = max(r, l)
             while r < len(s) and s[r] not in temp_set:
                 temp_set.add(s[r])
                 r += 1
