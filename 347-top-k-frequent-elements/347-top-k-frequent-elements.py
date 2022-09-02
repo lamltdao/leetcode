@@ -1,5 +1,3 @@
-from heapq import heapify, heappop
-# USING PQ IS ASYMTOTICALLY FASTER THAN SORTING
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         d = {}
