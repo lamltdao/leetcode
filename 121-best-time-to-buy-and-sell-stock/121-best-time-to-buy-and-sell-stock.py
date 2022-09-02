@@ -1,10 +1,8 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         """
-        c1: dp[i]: highest price on the right of i O(n) with 2 loops
-        c2: sliding window
-        
-        4 5 3 6 8 4 2
+        c1: dp[i]: highest price on the right of i O(2n)
+        c2: sliding window O(n) 
         """
         if len(prices) == 1:
             return 0
