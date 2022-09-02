@@ -6,11 +6,10 @@ class Solution:
         for num in nums:
             d[num] = 1 if num not in d else d[num] + 1
         arr = []
-        for num, freq in d.items():
-            arr.append((-freq,num))
-        heapify(arr)
-        result = []
+        for num in d.keys():
+            arr.append((-d[num], num))
+        arr.sort()
+        ans = []
         for i in range(k):
-            _,n = heappop(arr)
-            result.append(n)
-        return result
+            ans.append(arr[i][1])
+        return ans
