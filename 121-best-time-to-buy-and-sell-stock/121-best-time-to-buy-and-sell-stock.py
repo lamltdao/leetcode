@@ -4,8 +4,6 @@ class Solution:
         c1: dp[i]: highest price on the right of i O(2n)
         c2: sliding window O(n) 
         """
-        if len(prices) == 1:
-            return 0
         l = 0
         r = 1
         ans = 0
