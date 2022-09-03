@@ -10,9 +10,8 @@ class Solution:
         while r < len(prices):
             if prices[l] < prices[r]:
                 ans = max(ans, prices[r] - prices[l])
-                r += 1
             else:
                 l = r
-                r = l+1
+            r += 1
         return ans
         
