@@ -8,8 +8,8 @@ class Solution:
         r = 1
         ans = 0
         while r < len(prices):
+            ans = max(ans, prices[r] - prices[l])
             if prices[l] < prices[r]:
-                ans = max(ans, prices[r] - prices[l])
                 r += 1
             else:
                 l = r
