@@ -10,10 +10,11 @@ class Solution:
         r = 1
         ans = 0
         while r < len(prices):
-            while r < len(prices) and prices[l] <= prices[r]:
+            if prices[l] < prices[r]:
                 ans = max(ans, prices[r] - prices[l])
                 r += 1
-            l = r
-            r = l+1
+            else:
+                l = r
+                r = l+1
         return ans
         
