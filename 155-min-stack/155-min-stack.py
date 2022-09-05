@@ -1,4 +1,3 @@
-INF = 10000000000
 class MinStack:
 
     def __init__(self):
