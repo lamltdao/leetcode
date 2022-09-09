@@ -1,33 +1,17 @@
-import bisect
+import functools
+
 class Solution:
     def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
-        properties.sort()
-        #list[ [attk_val, [def vals]] ]
-        sorted_grouped_props = []
-        i = 0
-        while i < len(properties):
-            j = i
-            group = [properties[i][0], []]
-            while j < len(properties) and properties[j][0] == properties[i][0]:
-                group[1].append(properties[j][1])
-                j += 1
-            sorted_grouped_props.append(group)
-            i = j
-        dp_r = [None for _ in sorted_grouped_props]
-        dp_r[-1] = len(sorted_grouped_props)-1
-        tmp_max_def = sorted_grouped_props[-1][1][-1]
-        """
-        dp_r[i]: idx of the highest defense from [i+1..end], = i if not exist higher defense to the right of i
-        
-        """
-        for i in range(len(sorted_grouped_props)-2,-1,-1):
-            dp_r[i] = dp_r[i+1]
-            if sorted_grouped_props[i+1][1][-1] > tmp_max_def:
-                tmp_max_def = sorted_grouped_props[i+1][1][-1]
-                dp_r[i] = i+1
+        def comparator(p_prev, p_next):
+            if p_prev[0] != p_next[0]:
+                return 1 if p_prev[0] > p_next[0] else -1
+            else:
+                return 1 if p_prev[1] < p_next[1] else -1
+        properties.sort(key=functools.cmp_to_key(comparator))
+        maxDef = properties[-1][1]
         ans = 0
-        for i in range(len(dp_r)):
-            if dp_r[i] != i:
-                ans += bisect.bisect_left(sorted_grouped_props[i][1], sorted_grouped_props[dp_r[i]][1][-1])
+        for i in range(len(properties)-1, -1, -1):
+            if properties[i][1] < maxDef:
+                ans += 1
+            maxDef = max(maxDef, properties[i][1])
         return ans
-                    
