@@ -17,9 +17,7 @@ class Solution:
         dp_r[-1] = len(sorted_grouped_props)-1
         tmp_max_def = sorted_grouped_props[-1][1][-1]
         """
-        dp[len-1] = len-1
-        dp[len-2] = len-1
-        dp[len-3] = max(len-1, len-2)
+        dp_r[i]: idx of the highest defense from [i+1..end]
         
         """
         for i in range(len(sorted_grouped_props)-2,-1,-1):
