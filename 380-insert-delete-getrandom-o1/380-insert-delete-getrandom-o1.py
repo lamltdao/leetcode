@@ -6,6 +6,8 @@ class RandomizedSet:
         """
         set {val: idx}
         [vals]
+        add: set idx = len(arr) then append val
+        remove: simply swap with element currently at end, update idx of that element
         """
         self.d = {}
         self.arr = []
