@@ -1,17 +1,7 @@
 from heapq import heapify, heappush, heappop
 class MedianFinder:
 
-    def __init__(self):
-        """
-        1,3,4,6
-        7
-        
-        2 heaps: k ele
-        max heap: store min k//2 el
-        min heap: store max k//2 el
-        findMed: log(m) + log(n)
-        Invariant: min_heap ==  max_heap or min_heap == max_heap+1 min_heap+1 >= max_heap
-        """
+    def __init__(self):        
         self.min_heap = []
         heapify(self.min_heap)
         self.max_heap = []
