@@ -9,10 +9,6 @@ class MyCircularQueue:
         if cur_idx+1 < len(self.queue):
             return cur_idx+1
         return 0
-    # def get_prev(self, cur_idx):
-    #     if cur_idx-1 >= 0:
-    #         return cur_idx-1
-    #     return len(self.queue)-1
     def enQueue(self, value: int) -> bool:
         if not self.isFull():
             self.rear = self.get_next(self.rear)
