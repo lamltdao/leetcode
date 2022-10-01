@@ -16,16 +16,23 @@ class Solution:
             graph[r] = ingredients[i]
         
         recur = set()
+        dp = {}
         def can_make(r):
+            if r in dp:
+                return dp[r]
             if r not in graph:
+                dp[r] = False
                 return False
-            if r in recur:
+            if r in recur: # cycle in graph
+                dp[r] = False
                 return False
             recur.add(r)
             for ing in graph[r]:
                 if not can_make(ing):
+                    dp[r] = False
                     return False
             recur.remove(r)
+            dp[r] = True
             return True
         ans = []
         for r in recipes:
