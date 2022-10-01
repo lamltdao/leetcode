@@ -1,5 +1,3 @@
-from collections import deque
-
 class Solution:
     def alertNames(self, keyName: List[str], keyTime: List[str]) -> List[str]:
         def to_minute(time):
