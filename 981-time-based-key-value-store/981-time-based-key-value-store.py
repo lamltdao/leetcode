@@ -13,12 +13,24 @@ class TimeMap:
             self.val[key] = []
         self.d[key].append(timestamp)
         self.val[key].append(value)
-        
-        
+    
+    def binary_search(self,key, timestamp):
+        # return idx i such that self.d[key][:i] <= timestamp, self.d[key][i:] > timestamp
+        l = 0
+        r = len(self.d[key])-1
+        while l <= r:
+            m = (l+r) // 2
+            if self.d[key][m] > timestamp and (m == 0 or self.d[key][m-1] <= timestamp):
+                return m
+            elif self.d[key][m] > timestamp:
+                r = m-1
+            else:
+                l = m+1
+        return l
     def get(self, key: str, timestamp: int) -> str:
         if key not in self.d:
             return ""
-        idx = bisect.bisect_right(self.d[key], timestamp)
+        idx = self.binary_search(key, timestamp)
         if idx >= len(self.d[key]): # timestamp > any prev timestamp
             return self.val[key][-1]
         if idx <= 0: # timestamp < any prev timestamp
