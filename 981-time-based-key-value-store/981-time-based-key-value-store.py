@@ -1,4 +1,3 @@
-import bisect
 class TimeMap:
 
     def __init__(self):
