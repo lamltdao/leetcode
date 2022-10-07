@@ -2,12 +2,6 @@ from collections import deque
 
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        """
-        create graph
-        for each node: dfs(node) -> [time, num_node]
-            if num_node == n:
-                ans = min(ans, time)
-        """
         graph = [[] for _ in range(n)]
         for t in times:
             u,v,w = t[0],t[1],t[2]
