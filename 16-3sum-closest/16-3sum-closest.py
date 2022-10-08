@@ -14,15 +14,11 @@ class Solution:
             while l < r:
                 if abs(res-target) > abs(nums[l] + nums[r] + nums[i] - target):
                     res = nums[l] + nums[r] + nums[i]
-                if nums[l] + nums[r] == target - nums[i]:
-                    return target
+                # if nums[l] + nums[r] == target - nums[i]:
+                #     return target
                 if nums[l] + nums[r] < target - nums[i]:
                     l += 1 
-                    if l == i:
-                        l += 1
                 else:
                     r -= 1
-                    if r == i:
-                        r -= 1
         return res
             
