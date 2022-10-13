@@ -1,5 +1,7 @@
 class Solution:
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
+        # Time: O(n), n = len(time)
+        # Space: O(n)
         d = {}
         for t in time:
             r = t % 60
