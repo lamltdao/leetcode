@@ -11,12 +11,9 @@ class Node:
         tmp.is_end += 1
 class Solution:
     def numMatchingSubseq(self, s: str, words: List[str]) -> int:
-        """
-        trie out of words
-        a-c-d
-            \e
-        b-b
-        """
+        # Time: O(total length of all words) (trie creation) + 
+        # O(len(s) * # of paths in trie) = O(len(s) * len(words)), as each path have to go through len(s) to find matched_idx. But unlike the naive algo, words with similar subpath in the trie will have the subpath ran once rather than twice
+        # Space: O(total length of al words)
         ans = 0
         trie = Node()
         for w in words:
