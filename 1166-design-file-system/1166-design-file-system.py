@@ -22,9 +22,9 @@ class Node:
             if d not in tmp.children:
                 return -1 # path does not exist
             tmp = tmp.children[d]
-        if tmp.value > 0:
-            return tmp.value
-        return -1
+        # if tmp.value > 0:
+        return tmp.value
+        # return -1
 class FileSystem:
 
     def __init__(self):
