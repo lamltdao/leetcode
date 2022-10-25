@@ -9,6 +9,7 @@ class Solution:
         dp[i]: max profit of worker = i
         diff[0->arr[0][0]-1] = 0
         
+        Time: O(nlogn + max(difficulty) + m)
         """
         total = 0
         n = len(difficulty)
