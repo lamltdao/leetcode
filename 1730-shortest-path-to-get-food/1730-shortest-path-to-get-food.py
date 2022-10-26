@@ -31,7 +31,6 @@ class Solution:
                 if c+1 < ncol and grid[r][c+1] != "X" and dist[r][c+1] > dist[r][c]+1:
                     dist[r][c+1] = dist[r][c] + 1
                     q.append((r,c+1))
-        print(dist, food_cells)
         for r in range(nrow):
             for c in range(ncol):
                 if grid[r][c] == "*":
