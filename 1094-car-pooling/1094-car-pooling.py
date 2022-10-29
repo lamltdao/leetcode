@@ -3,17 +3,15 @@ class Solution:
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
         """
         sort trips by (trip[1], trip[2])
-        pq (to, num_pass)
+        pq (to, num_pass) min heap
         when at idx i
-        check each (to, num_pass) in deque. if to < i, cur_pass -= num_pass
+            pop (to, num_pass), cur_pass -= num_pass from pq as long as to < i
+            if adding passenger at idx i does not exceed capa => update pq and cur_pass
+            else:
+                return False
         
-        [,[9,1,7],[4,2,4],[9,3,4], [7,4,5]]
-23
-
-        1: 9
-        2: 13
-        3: 22
-        4: 
+        return True
+        Time: O(nlogn), Space: O(n) for pq
         """
         trips.sort(key=lambda arr: (arr[1], arr[2]))
         pq = []
