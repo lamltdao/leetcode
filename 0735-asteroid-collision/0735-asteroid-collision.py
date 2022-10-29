@@ -2,7 +2,7 @@ class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
         """
         C1: brute force: loop from left, if at a neg, check its left, get rid of pos val if absolute val < abs val of that neg, get rid of itself if >, explode both if equal abs
-        O(n^2)
+        O(n^2) Time, O(n) space
         """
         n = len(asteroids)
         # exploded = [False for _ in range(n)]
@@ -25,7 +25,8 @@ class Solution:
         C2:
         1,-4, 10,2,-5
         use a mono stack pos to push indices of pos numbers in
-        when at idx i is a neg number, pop from stack as long as stack[-1] < abs of neg
+        when at idx i is a neg number, pop from stack as long as stack[-1] < abs of neg. If stack not empty after popping, it means stack[-1] >= abs of neg. If equal, mark both stack[-1] and neg as exploded, otherwise mark neg as exploded
+        O(n) time, O(n) space
         """
         stk_pos = [] # idx
         exploded = [False for _ in range(n)]
