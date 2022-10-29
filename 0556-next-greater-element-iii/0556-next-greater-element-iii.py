@@ -25,6 +25,7 @@ class Solution:
         prev_ptr_digit = digits[ptr-1]
         # reverse from ptr
         digits[ptr:] = digits[ptr:][::-1]
+        # bisect_right: arr[i:high] > target => arr[i]: smallest number > target
         idx = bisect.bisect_right(digits, prev_ptr_digit, ptr, len(digits))
         # can't find digit to replace
         if idx >= len(digits) or idx < 0:
