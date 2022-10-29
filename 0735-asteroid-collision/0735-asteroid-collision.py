@@ -24,13 +24,14 @@ class Solution:
         """
         C2:
         1,-4, 10,2,-5
-        two mono stack pos and neg
+        use a mono stack pos to push indices of pos numbers in
+        when at idx i is a neg number, pop from stack as long as stack[-1] < abs of neg
         """
         stk_pos = [] # idx
         exploded = [False for _ in range(n)]
         for i in range(n):
             if asteroids[i] < 0:
-                while len(stk_pos) > 0 and stk_pos[-1] < i and asteroids[stk_pos[-1]] < -asteroids[i]:
+                while len(stk_pos) > 0 and asteroids[stk_pos[-1]] < -asteroids[i]:
                     idx = stk_pos.pop()
                     exploded[idx] = True
                 if len(stk_pos) > 0: # asteroids[stk_pos[-1]] >= -asteroids[i]
