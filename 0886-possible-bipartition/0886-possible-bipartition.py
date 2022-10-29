@@ -12,7 +12,7 @@ class Solution:
         graph = [[] for _ in range(n)]
         for d in dislikes:
             u,v = d[0], d[1]
-            # make the graph bidirectional, as if a dislikes b => a and b cant be same group => a and b diff color
+            # make the graph undirected, as if a dislikes b => a and b cant be same group => a and b diff color
             graph[u-1].append(v-1)
             graph[v-1].append(u-1)
         colored = [None for _ in range(n)]# true-red, false-blue
