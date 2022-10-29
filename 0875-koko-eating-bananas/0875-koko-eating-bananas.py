@@ -9,7 +9,7 @@ class Solution:
         l < r:
             m = (l+r) // 2
         
-        n log n
+        Time: n log m, Space: O(1), m = max(piles)
         
         idea: try possible val of k in range [1, max(piles)]
         if k is valid (num_hour <= h), try a smaller val
