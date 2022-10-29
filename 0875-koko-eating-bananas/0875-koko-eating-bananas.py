@@ -12,9 +12,7 @@ class Solution:
         n log n
         
         idea: try possible val of k in range [1, max(piles)]
-        if k is valid, try a smaller val
-        else if finish eating in less than h:
-            try smaller
+        if k is valid (num_hour <= h), try a smaller val
         else:
             try bigger
         """
