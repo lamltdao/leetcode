@@ -1,17 +1,5 @@
 class Solution:
     def numDistinctIslands(self, grid: List[List[int]]) -> int:
-        """
-        - find islands, store them
-        - d {island: cnt}, island 
-        
-        
-        for r 
-            for c
-                island = dfs
-                for i in each recorded island: O(mn)
-                    if not dup:
-                        add island to recorded island
-        """
         islands = []
         nrow = len(grid)
         ncol = len(grid[0])
@@ -26,14 +14,6 @@ class Solution:
                 nc = c + d[1]
                 if 0 <= nr < nrow and 0 <= nc < ncol and not visited[nr][nc] and grid[nr][nc] == 1:
                     dfs(nr,nc,island,offset_r,offset_c)
-        # def is_duplicate(island_1, island_2):
-        #     if len(island_1) != len(island_2):
-        #         return False
-        #     l = len(island_1)
-        #     for i in range(l):
-        #         if island_1[i] != island_2[i]:
-        #             return False
-        #     return True
         d = set()
         for r in range(nrow):
             for c in range(ncol):
@@ -45,12 +25,4 @@ class Solution:
                     dfs(r,c,island, offset_r, offset_c)
                     island_s = frozenset(island)
                     d.add(island_s)
-                    # has_dup = False
-                    # for exist_island in islands:
-                    #     if is_duplicate(island, exist_island):
-                    #         has_dup = True
-                    #         break
-                    # if not has_dup:
-                    #     islands.append(island)
-        # return len(islands)
         return len(d)
