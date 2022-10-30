@@ -5,13 +5,10 @@ class Solution:
         rank = [0 for _ in range(n)]
         # find() returns the root node
         def find(i):
-            tmp = i
-            # while or if should be fine
-            if tmp != parent[tmp]:
-                # set parent[tmp] to the root node of the path by calling recursive find()
-                parent[tmp] = find(parent[tmp])
-                tmp = parent[tmp]
-            return tmp
+            if i != parent[i]:
+            # set parent[tmp] to the root node of the path by calling recursive find()
+                parent[i] = find(parent[i])
+            return parent[i]
         def union(i,j):
             par_i = find(i)
             par_j = find(j)
