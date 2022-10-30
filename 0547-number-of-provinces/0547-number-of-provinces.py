@@ -3,9 +3,11 @@ class Solution:
         n = len(isConnected)
         parent = [i for i in range(n)]
         rank = [0 for _ in range(n)]
+        # find() returns the root node
         def find(i):
             tmp = i
             while tmp != parent[tmp]:
+                # set parent[tmp] to the root node of the path by calling recursive find()
                 parent[tmp] = find(parent[tmp])
                 tmp = parent[tmp]
             return tmp
