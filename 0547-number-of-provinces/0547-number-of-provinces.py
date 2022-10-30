@@ -6,7 +6,7 @@ class Solution:
         # find() returns the root node
         def find(i):
             tmp = i
-            while tmp != parent[tmp]:
+            if tmp != parent[tmp]:
                 # set parent[tmp] to the root node of the path by calling recursive find()
                 parent[tmp] = find(parent[tmp])
                 tmp = parent[tmp]
