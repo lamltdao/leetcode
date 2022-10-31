@@ -5,6 +5,8 @@ class Solution:
             check each cell in the diagonal starting from that cell
         for each cell in the first col excluding the top left
             check same thing
+        Time: O(mn), as each cell is visited once
+        Space: O(1)
         """
         nrow = len(matrix)
         ncol = len(matrix[0])
