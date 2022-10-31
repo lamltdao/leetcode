@@ -30,9 +30,9 @@ class Solution:
                     ans += prev_num
                 else:
                     ans -= prev_num
-                    sign = 1 if prev_num > 0 else -1
+                    signn = 1 if prev_num > 0 else -1
                     # stk.append(abs(n) // num * sign)
-                    prev_num = abs(prev_num) // num * sign
+                    prev_num = abs(prev_num) // num * signn
                     ans += prev_num
             elif c in operations:
                 if c == "+":
