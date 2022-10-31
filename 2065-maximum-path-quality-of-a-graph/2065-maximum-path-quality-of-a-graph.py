@@ -7,12 +7,10 @@ class Solution:
             u,v,w = e[0], e[1], e[2]
             graph[u].append((v,w))
             graph[v].append((u,w))
-        once = True
         def bt(path, tmp_node, tmp_time, tmp_val):
-            nonlocal ans, maxTime,once
-            if once or tmp_node == 0:
+            nonlocal ans, maxTime
+            if tmp_node == 0:
                 ans = max(ans, tmp_val)
-                once = False
             for next_node, w in graph[tmp_node]:
                 if tmp_time + w <= maxTime:
                     if next_node not in path:
