@@ -1,5 +1,12 @@
 class Solution:
     def maximalPathQuality(self, values: List[int], edges: List[List[int]], maxTime: int) -> int:
+        """
+        Time: O(E + V + )
+        - # of edges(including dup) in path <= 10
+        - each node has <= 4 edges connected to it
+        => Time: O(4^10)
+        Space: O(V+2E) to store the graph
+        """
         ans = 0
         n = len(values)
         graph = [[] for _ in range(n)]
