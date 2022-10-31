@@ -1,7 +1,6 @@
 class Solution:
     def maximalPathQuality(self, values: List[int], edges: List[List[int]], maxTime: int) -> int:
         """
-        Time: O(E + V + )
         - # of edges(including dup) in path <= 10
         - each node has <= 4 edges connected to it
         => Time: O(4^10)
