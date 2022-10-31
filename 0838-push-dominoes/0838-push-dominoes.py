@@ -33,7 +33,7 @@ class Solution:
         dp_l = [0 for _ in range(n)]
         dp_r = [0 for _ in range(n)]
         ans = [None for _ in range(n)]
-        INF = 100001
+        INF = n
         i = 0
         while i < n:
             if dominoes[i] == "R":
