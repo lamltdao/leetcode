@@ -2,7 +2,7 @@ class Solution:
     def calculate(self, s: str) -> int:
         """
         Time: O(s), Space: O(s) bc of stack
-        Can optimize not using stack by keep track of last_number
+        Can optimize not using stack by keep track of prev_num => Space O(1)
         """
         numbers = set([str(i) for i in range(10)])
         operations = set(["+", "-", "*", "/"])
