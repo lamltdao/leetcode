@@ -30,47 +30,29 @@ class Solution:
         [L,L,0,R,R,0,L,L,R,R,L,L,0,0]
         """
         n = len(dominoes)
-        dp_l = [0 for _ in range(n)]
-        dp_r = [0 for _ in range(n)]
-        ans = [None for _ in range(n)]
-        INF = n
-        i = 0
-        while i < n:
-            if dominoes[i] == "R":
-                dp_r[i] = INF
-                j = 1
-                while i+j < n and dominoes[i+j] != "R":
-                    dp_r[i+j] = INF-j
-                    if dominoes[i+j] == "L":
-                        j += 1
-                        break
-                    j += 1
-                i += j
-            else:
-                i += 1
-        i = n-1
-        while i >= 0:
-            if dominoes[i] == "L":
-                dp_l[i] = INF
-                j = 1
-                while i-j >= 0 and dominoes[i-j] != "L":
-                    dp_l[i-j] = INF-j
-                    if dominoes[i-j] == "R":
-                        j += 1
-                        break
-                    j += 1
-                i -= j
-            else:
-                i -= 1
-        # print(dp_l)
-        # print(dp_r)
+        forces = [0 for _ in range(n)]
+        tmp_force = 0
         for i in range(n):
-            if dp_l[i] < dp_r[i]:
-                ans[i] = "R"
-            elif dp_l[i] > dp_r[i]:
-                ans[i] = "L"
+            if dominoes[i] == "R":
+                tmp_force = n
+            elif dominoes[i] == "L":
+                tmp_force = 0
             else:
-                ans[i] = "."
-        return ''.join(ans)
-                
-                
+                tmp_force = max(tmp_force-1, 0) # can't be neg
+            forces[i] += tmp_force
+        for i in range(n-1, -1, -1):
+            if dominoes[i] == "L":
+                tmp_force = n
+            elif dominoes[i] == "R":
+                tmp_force = 0
+            else:
+                tmp_force = max(tmp_force-1, 0) # can't be neg
+            forces[i] -= tmp_force
+        for i in range(len(forces)):
+            if forces[i] > 0:
+                forces[i] = "R"
+            elif forces[i] < 0:
+                forces[i] = "L"
+            else:
+                forces[i] = "."
+        return ''.join(forces)
