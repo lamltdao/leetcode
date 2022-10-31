@@ -31,7 +31,7 @@ class Solution:
                 else:
                     ans -= prev_num
                     signn = 1 if prev_num > 0 else -1
-                    # stk.append(abs(n) // num * sign)
+                    # stk.append(abs(n) // num * signn)
                     prev_num = abs(prev_num) // num * signn
                     ans += prev_num
             elif c in operations:
