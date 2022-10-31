@@ -1,5 +1,8 @@
 class Solution:
     def calculate(self, s: str) -> int:
+        """
+        Time: O(s), Space: O(s) bc of stack
+        """
         numbers = set([str(i) for i in range(10)])
         operations = set(["+", "-", "*", "/"])
         stk = []
