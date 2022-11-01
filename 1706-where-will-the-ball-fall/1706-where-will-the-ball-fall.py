@@ -1,22 +1,16 @@
 class Solution:
     def findBall(self, grid: List[List[int]]) -> List[int]:
         """
-        [
-        [1,1,1,1,1,1],
-        [-1,-1,-1,-1,-1,-1],
-        [1,1,1,1,1,1],
-        [-1,-1,-1,-1,-1,-1]
-        ]
-        
         for each cell on the first row
             try dropping it
-                if cell[r][c] ==1 and (not edge right or cell[r][c+1] == -1)
-                    c += 1
+                if cell[r][c] ==1 and not (edge right or cell[r][c+1] == -1)
+                    tmp_c += 1
                     r += 1
-                elif cell[r][c] == -1 and (not edge left or cell[r][c-1] == 1):
-                    c -= 1
+                elif cell[r][c] == -1 and not (edge left or cell[r][c-1] == 1):
+                    tmp_c -= 1
                     r += 1
-                else: # stuck    
+                else: # stuck
+        Time: O(mn), Space: O(n), m:row, n: col
         """
         nrow = len(grid)
         ncol = len(grid[0])
