@@ -6,22 +6,20 @@
 #         self.right = right
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        """
-        not root => -INF
-        
-        if root.val > 0
-            max(root.val, root.val +pathleft, root.val +pathright)
-        else:
-            max(root.val, pathleft, pathright)
-    
-        only at most one node where both subtrees are taken
+        """    
         dp_l[root]: max sum of stick on left sub tree
         dp_r[root]: max sum of stick on right sub tree
-        for each root:
-            if root.val > 0
-                ans = max(ans, root.val, root.val +pathleft, root.val +pathright)
-            else:
-                ans = max(ans, root.val, pathleft, pathright)
+        
+        first push all nodes to a stack, level by level
+        for each node popped from stack:
+            dp_l[root] = max of either root.left, root.left + its left, or root.left + its right
+            dp_r[root] = max of either root.right, root.right + its left, or root.right + its right
+            NOTE: if any node is None, init dp_l/dp_r to -INF
+        ans
+        for each node in dp_l/dp_r
+           update ans to max of either ans, node.val, node.val and its left, node.val and its right, node.val and both left and right
+          
+        Time: O (#nodes), Space: O(#nodes) for the stack, dp_l, dp_r
         """
         stk = []
         # push to stack level by level
