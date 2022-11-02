@@ -3,7 +3,8 @@ class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
         """
         find path with minimum score, where score = max value of cells in path
-        values of cells are distinc, ranging from 0 -> n^2-1
+        time: O(n^2 log n^2) = O(n^2logn)
+        space: O(n^2) for dist and pq
         """
         # max heap
         nrow = len(grid)
@@ -16,7 +17,6 @@ class Solution:
         heapify(pq)
         while len(pq) > 0:
             dis, r, c = heappop(pq)
-            # print(r,c)
             if r == nrow-1 and c == ncol-1:
                 return dis
             for d in dirs:
