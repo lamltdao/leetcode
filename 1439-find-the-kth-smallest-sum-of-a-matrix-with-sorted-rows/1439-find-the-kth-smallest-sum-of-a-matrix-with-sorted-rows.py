@@ -2,9 +2,6 @@ from heapq import heapify, heappush, heappop
 class Solution:
     def kthSmallest(self, mat: List[List[int]], k: int) -> int:
         """
-        at most 200 arr sums
-        1,3,11
-        2,4,6
         Time: O(k * (log(min(200, n^m)) + m^2 * log(min(200, n^m)) ) = O(k * log(min(200, n^m) * (1 + m^2)) = O(k * log(min(200, n^m) * m^2)
         Space: O(min(200, n^m) * m)
         """
