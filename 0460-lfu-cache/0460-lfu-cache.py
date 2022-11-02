@@ -4,12 +4,13 @@ class LFUCache:
     def __init__(self, capacity: int):
         self.map = {} # key: [val, freq]
         self.freq_map = {} # freq: OrderedDict() {key: val}
-        self.min_freq = 1
+        self.min_freq = 0
         self.capacity = capacity
     def update_freq(self, key):
         prev_freq = self.map[key][1]
-        # may not in map when we call put
-        if prev_freq in self.freq_map:
+        if prev_freq not in self.freq_map:
+            self.freq_map[prev_freq] = OrderedDict()
+        if key in self.freq_map[prev_freq]:
             del self.freq_map[prev_freq][key]
         self.map[key][1] += 1
         if prev_freq+1 not in self.freq_map:
