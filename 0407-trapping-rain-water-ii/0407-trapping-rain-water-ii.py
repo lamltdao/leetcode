@@ -1,6 +1,12 @@
 from heapq import heapify, heappush, heappop
 class Solution:
     def trapRainWater(self, heightMap: List[List[int]]) -> int:
+        """
+        In 2D, boundary is max left and max right
+        In 3D, boundary is min height of a whole region 
+        Time: O(mn*log(mn))
+        Space: O(mn)
+        """
         regions = []
         heapify(regions)
         min_h = 100000
