@@ -40,8 +40,6 @@ class LFUCache:
                 # evict lfu
                 k,_ = self.freq_map[self.min_freq].popitem()
                 del self.map[k]
-                if len(self.freq_map[self.min_freq]) == 0:
-                    self.min_freq = 1
                 # add new key
                 self.map[key] = [value,0]
                 self.update_freq(key)
