@@ -1,16 +1,11 @@
-from heapq import heapify, heappush, heappop
+# from heapq import heapify, heappush, heappop
 from collections import deque
 class Solution:
     def minCost(self, grid: List[List[int]]) -> int:
         """
-        pq (cost, r,c, set())
-        
-        [0, 0, 0]
-        visited
-        pop
-            push (cost, visited, nr, nc)
-            
-            push(cost+1, ...)
+        C1: bfs. weight = 0 if dir = grid[r][c], 1 otherwise
+        Time: O(mn)
+        Space: O(mn)
         """
         nrow = len(grid)
         ncol = len(grid[0])
@@ -32,7 +27,7 @@ class Solution:
                     elif dist[r][c]+1 < dist[nr][nc]:
                         dist[nr][nc] = dist[r][c] + 1
                         q.append((nr,nc))
-        return dist[nrow-1][ncol-1] if dist[nrow-1][ncol-1] != INF else -1
+        return dist[nrow-1][ncol-1]
         # pq = [(0, 0, 0)]
         # heapify(pq)
         # dirs = [(0,1,1), (0,-1,2), (1,0,3), (-1,0,4)]
