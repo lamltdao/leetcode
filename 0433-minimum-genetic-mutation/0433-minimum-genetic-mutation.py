@@ -10,6 +10,8 @@ class Solution:
                 make an undirected edge
         bfs(start)
         return dist[end] if end in dist else -1
+        Time: O(V^2 * 8 + E+V) = O(V^2), V = O(len(bank))
+        Space: O(2E+V)
         """
         bank = set(bank)
         graph = {}
