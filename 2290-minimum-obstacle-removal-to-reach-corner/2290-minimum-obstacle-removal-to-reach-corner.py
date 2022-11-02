@@ -19,7 +19,7 @@ class Solution:
         heapify(pq)
         while len(pq) > 0:
             num_removed,r,c = heappop(pq)
-            if dist[r][c] != num_removed: # already found a more optimal for (r,c)
+            if dist[r][c] < num_removed: # already found a more optimal for (r,c)
                 continue
             for d in dirs:
                 nr = r + d[0]
