@@ -35,12 +35,12 @@ class Solution:
         dist = {k: INF for k in graph.keys()}
         dist[start] = 0
         q = deque()
-        q.append(start)
+        q.append((start,0))
         while len(q) > 0:
-            g1 = q.popleft()
+            g1,d = q.popleft()
             for g2 in graph[g1]:
-                if dist[g1] + 1 < dist[g2]:
-                    dist[g2] = dist[g1]+1
-                    q.append(g2)
+                if d + 1 < dist[g2]:
+                    dist[g2] = d+1
+                    q.append((g2, dist[g2]))
         return dist[end] if end in dist and dist[end] != INF else -1
         
