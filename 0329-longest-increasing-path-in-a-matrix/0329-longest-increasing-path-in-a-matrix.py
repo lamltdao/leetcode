@@ -11,12 +11,12 @@ class Solution:
             nonlocal nrow, ncol
             if dp[r][c] != 0:
                 return dp[r][c]
+            dp[r][c] = 1
             for d in dirs:
                 nr = r + d[0]
                 nc = c + d[1]
                 if 0 <= nr < nrow and 0 <= nc < ncol and matrix[nr][nc] > matrix[r][c]:
-                    dp[r][c] = max(dp[r][c], dfs(nr,nc))
-            dp[r][c] += 1
+                    dp[r][c] = max(dp[r][c], 1 + dfs(nr,nc))
             return dp[r][c]
         ans = 1
         for r in range(nrow):
