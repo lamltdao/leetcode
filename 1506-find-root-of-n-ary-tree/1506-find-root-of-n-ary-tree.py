@@ -9,12 +9,10 @@ class Node:
 class Solution:
     def findRoot(self, tree: List['Node']) -> 'Node':
         children_value_set = set()
-        node_set = set()
         for t in tree:
-            node_set.add(t)
             for c in t.children:
                 children_value_set.add(c.val)
-        for node in node_set:
+        for node in tree:
             if node.val not in children_value_set:
                 return node
         return None
