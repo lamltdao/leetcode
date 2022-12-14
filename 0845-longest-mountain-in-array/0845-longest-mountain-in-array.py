@@ -1,8 +1,7 @@
 class Solution:
     def longestMountain(self, arr: List[int]) -> int:
         """
-        less[i]: num increasing elements < i on the left
-        greater[i]: num decreasing elements < i on the right
+        1 pass, O(1) space
         """
         if len(arr) < 3:
             return 0
