@@ -14,6 +14,7 @@ class Solution:
             for num_coin in range(1, len(coins)+1):
                 dp[am][num_coin] += dp[am][num_coin-1]
                 if am >= coins[num_coin-1]:
-                    for mul in range(1, am//coins[num_coin-1]+1):
-                        dp[am][num_coin] += dp[am-mul*coins[num_coin-1]][num_coin-1]
+                    # for mul in range(1, am//coins[num_coin-1]+1):
+                    #     dp[am][num_coin] += dp[am-mul*coins[num_coin-1]][num_coin-1]
+                    dp[am][num_coin] += dp[am-coins[num_coin-1]][num_coin]
         return dp[amount][len(coins)]
