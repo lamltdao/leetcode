@@ -8,11 +8,8 @@ class Solution:
         dp[i][j] = sum {dp[i-coins[j]*k][j-1]} (use multiples of jth coin) + dp[i][j-1] (dont use jth coin)
         """
         dp = [[0 for _ in range(len(coins)+1)] for _ in range(amount+1)]
-        # for i in range(amount+1):
-        #     dp[i][0] = 1
         for j in range(len(coins)+1):
             dp[0][j] = 1
-        dp[0][0] = 1
         for am in range(1, amount+1):
             for num_coin in range(1, len(coins)+1):
                 dp[am][num_coin] += dp[am][num_coin-1]
