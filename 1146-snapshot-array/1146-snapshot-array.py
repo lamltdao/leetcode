@@ -4,6 +4,10 @@ class SnapshotArray:
         """
         C1: {snap_id: array} => 25 * 10^8 => TLE
         C2: [[(val, next_snap_id)]]: For each index, store an array of (value, next_snap_id) indicating the value at the index reported in the next snap
+        
+        Complexity: set O(1)
+                    get O(log(num snaps))
+                    snap O(1)
         """
         self.snaps = [[(0, -1)] for _ in range(length)]
         self.cur_snap_id = -1
