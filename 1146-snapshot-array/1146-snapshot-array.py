@@ -2,20 +2,16 @@ class SnapshotArray:
 
     def __init__(self, length: int):
         """
-        {snap_id: array} => 25 * 10^8
-        array: [val]
-        snap [[(val, snap_id)], ]
-        
-        snap: for each idx i
-            append (array[i], snap_id)
-        set: modify array
-        get: look at snap, use binary search to find val
+        C1: {snap_id: array} => 25 * 10^8 => TLE
+        C2: [[(val, next_snap_id)]]: For each index, store an array of (value, next_snap_id) indicating the value at the index reported in the next snap
         """
-        self.length = length
         self.snaps = [[(0, -1)] for _ in range(length)]
         self.cur_snap_id = -1
 
     def set(self, index: int, val: int) -> None:
+        # If the latest next_snap_id in self.snaps[idx] == self.cur_snap_id+1,
+        # that means there's no snap between 2 set() calls to this index. Thus,
+        # we only record the latest set()
         if len(self.snaps[index]) > 0 and self.snaps[index][-1][1] != self.cur_snap_id+1:
             self.snaps[index].append((val, self.cur_snap_id+1))
         else:
