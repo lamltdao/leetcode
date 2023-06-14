@@ -1,10 +1,14 @@
 class Solution:
     def maxDistance(self, arrays: List[List[int]]) -> int:
         """
-        only care smallest & largest without being in the same arr
+        For each array, only care about smallest & largest
         
+        Create an array arr
+        For each array at idx i, append (smallest_el, i) and (largest_el, i) to arr
+        Sort arr
+        The first and last values of arr should form a max distance if they belong to different arrays, otherwise get the max of (last - second) and (second last - first)
         
-        (1,0) (2,1)  (4,1) (6,0)
+        Edge: (1,0) (2,1)  (4,1) (6,0)
         """
         val_idx_arr = []
         for i in range(len(arrays)):
