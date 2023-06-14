@@ -25,25 +25,12 @@ class Solution:
         #     is_min_turn = not is_min_turn
         #     i += 1
         """
-        C2:
-        1,2,3,4,5,6
-        1,3,2,5,4,6
-        
-        1,5,4,3,2
-        1,5,3,4,2
-        
-        5,4,3,2,1
-        
-        next greater: -1,-1,-1,-1,-1
-        next smaller: -1,-1,-1,-1,-1
-        4,5,3,2,1
-        
-        1,3,2,4,5
-        
-        1,2,3,1,5
-        4,5,3,1,2
-        
-        
+        C2: O(n)
+        loop through each idx i
+            if i is odd and nums[i] < nums[i+1]:
+                swap i and i+1
+            if i is even and nums[i] > nums[i+1]:
+                swap i and i+1
         """
         def swap(i,j):
             nonlocal nums
