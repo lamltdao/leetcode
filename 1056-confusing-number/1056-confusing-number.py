@@ -42,6 +42,6 @@ class Solution:
             digit = tmp % 10
             if digit not in m:
                 return False
-            invert_n = invert_n * 10 + m[digit]
+            invert_n = invert_n * 10 + m[digit] # Formula to calculate inverse of n
             tmp //= 10
         return n != invert_n
