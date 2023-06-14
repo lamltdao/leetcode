@@ -10,20 +10,13 @@ class Solution:
         
         Edge: (1,0) (2,1)  (4,1) (6,0)
         
-        Time: O(n log n), n = 2m
+        Time: O(n), n = 2m
         """
         val_idx_arr = []
         for i in range(len(arrays)):
             val_idx_arr.append([arrays[i][0], i])
             if len(arrays[i]) > 1:
                 val_idx_arr.append([arrays[i][-1], i])
-        # val_idx_arr.sort()
-        # l = 0
-        # r = len(val_idx_arr)-1
-        # if val_idx_arr[l][1] != val_idx_arr[r][1]:
-        #     return val_idx_arr[r][0] - val_idx_arr[l][0] 
-        # else:
-        #     return max(val_idx_arr[r][0] - val_idx_arr[l+1][0], val_idx_arr[r-1][0] - val_idx_arr[l][0])
         min_val, min_val_arr_idx = min(val_idx_arr)
         max_val, max_val_arr_idx = max(val_idx_arr)
         if min_val_arr_idx != max_val_arr_idx:
