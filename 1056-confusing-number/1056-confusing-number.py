@@ -27,7 +27,7 @@ class Solution:
         #     return digits[l] in [6,9] or (digits[l] in rotate_able and is_diff)
         # return is_diff
         """
-        C2: invert n and compare
+        C2: invert n and compare. O(log_10(n))
         """
         m = {
             0:0,
