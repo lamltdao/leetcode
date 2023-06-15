@@ -8,6 +8,21 @@ class Solution:
         alg:
         - 2 pointers, start at 0
         - try to match as many chars in source
+        Time: O(src + target)
+        E.g:
+        1)
+        source: abc
+        target: abcbc
+        
+        start at idx 0 of target, keep scanning => match until c (idx 2)
+        continue from b (idx 3), match until the end
+        2)
+        source: xyz
+        target: xzyxz
+        
+        start at idx 0 of target, keep scanning => match until z (idx 1)
+        continue from y (idx 2), match y only (idx 2)
+        continue from x (idx 3), match until the end
         """
         ans = 0
         target_ptr = 0
