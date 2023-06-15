@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def maxLevelSum(self, root: Optional[TreeNode]) -> int:
+        # Time: O(n), n: number of nodes in tree
         d = {} # level: sum
         def traverse(root, cur_level):
             if root is None:
