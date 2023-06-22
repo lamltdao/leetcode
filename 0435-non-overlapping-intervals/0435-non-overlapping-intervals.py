@@ -5,7 +5,7 @@ class Solution:
         
         if 2 consecutive intervals overlap, choose the one with smaller end
         
-        O(n)
+        O(nlogn)
         """
         intervals.sort()
         ans = 0
