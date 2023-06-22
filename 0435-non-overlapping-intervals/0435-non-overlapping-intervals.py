@@ -4,6 +4,8 @@ class Solution:
         sort by start
         
         if 2 consecutive intervals overlap, choose the one with smaller end
+        
+        O(n)
         """
         intervals.sort()
         ans = 0
