@@ -19,19 +19,19 @@ class Solution:
         dp[i][0]: max profit without holding stock
         dp[i][1]: max profit holding stock
         each stock, either buy (if not hold), sell (if hold), or nothing
-        dp[i][0] = max(dp[i][0]
+        dp[i][0] = max(
             dp[i-1][0] # nothing
             dp[i-1][1] + prices[i] - fee  # sell. previously must hold stock
         )
-        dp[i][1] = max(dp[i][1],
+        dp[i][1] = max(
             dp[i-1][1], # nothing
             dp[i-1][0] - prices[i] # buy. previously must not hold
         )
-        
+        Optimized: use 2 vars instead of array dp
         """
         dp = [[0,0] for _ in prices]
         dp[0][1] = -prices[0]
         for i in range(1, len(prices)):
             dp[i][0] = max(dp[i-1][1] + prices[i] - fee, dp[i-1][0])
             dp[i][1] = max(dp[i-1][0] - prices[i], dp[i-1][1])
-        return max(0, dp[-1][0])
+        return dp[-1][0]
