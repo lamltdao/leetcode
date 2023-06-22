@@ -1,21 +1,6 @@
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
         """
-        if buy - sell <= fee, not worth buying
-        
-        for each idx i, find next element > fee + prices[i]
-        
-        [1,3,5,7,11,3], fee = 3
-        buy 1 sell 5, buy 7 sell 11 => 2
-        
-        buy 1 sell 11 => 8
-        
-        max_profit
-        [0,0,1,3,8,8]
-        
-        each idx: either hold 1 stock or no stock
-        if hold 1 stock, can sell 
-        
         dp[i][0]: max profit without holding stock
         dp[i][1]: max profit holding stock
         each stock, either buy (if not hold), sell (if hold), or nothing
