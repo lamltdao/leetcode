@@ -28,13 +28,11 @@ class Solution:
             dp[i-1][0] - prices[i] # buy. previously must not hold
         )
         Optimized: use 2 vars instead of array dp
-        """
-        dp = [[0,0] for _ in prices]
-        dp[0][1] = -prices[0]
-        
+        """        
         max_profit_not_hold = 0
         max_profit_hold = -prices[0]
         for i in range(1, len(prices)):
+            tmp = max_profit_not_hold
             max_profit_not_hold = max(max_profit_hold + prices[i] - fee, max_profit_not_hold)
-            max_profit_hold = max(max_profit_not_hold - prices[i], max_profit_hold)
+            max_profit_hold = max(tmp - prices[i], max_profit_hold)
         return max_profit_not_hold
