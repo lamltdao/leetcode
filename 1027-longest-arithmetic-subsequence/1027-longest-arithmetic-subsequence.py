@@ -1,19 +1,11 @@
 class Solution:
     def longestArithSeqLength(self, nums: List[int]) -> int:
         """
-        record {diff: [(num1, num2)]} where idx1 < idx2
-        sort => find longest
-        
-        n^2 + n log n + n
-        
-        4,7,6,8,8,9,10
-        
-        -2: [4,6], [6,8], [6,8], [8,10], [8,10]
-        dp[i][j]: longest subsequence ending at i whose diff is j
-        j <= 500
-        dp[i][j] = dp[k][j] + 1 where diff[i] - diff[k] == j
-        base: dp[0][j] = 1
-        => 1000*500
+        dp[i][d]: longest subsequence ending at i whose diff between 2 consecutive elements in the subsequence is d
+        initialize dp = {} * len(nums)
+        dp[i][d] = max(dp[i][d], dp[j][d] + 1) where nums[i] - nums[j] == d
+        Time: O(n^2), n = len(nums)
+        Space: O(n*500), as there're at most 500 values for difference of 2 numbers
         """
         ans = 0
         dp = [{} for _ in nums]
