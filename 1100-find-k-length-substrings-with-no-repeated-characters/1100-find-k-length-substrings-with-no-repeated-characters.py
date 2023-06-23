@@ -10,7 +10,7 @@ class Solution:
             char_freq[s[r]] += 1
             if char_freq[s[r]] > 1:
                 num_char_multiple_freq += 1
-            # move l until no repeated character
+            # move l as long as there is a repeating character or the number of chars in window > k
             while l < r and (num_char_multiple_freq > 0 or len(char_freq) > k):
                 char_freq[s[l]] -= 1
                 if char_freq[s[l]] == 1:
