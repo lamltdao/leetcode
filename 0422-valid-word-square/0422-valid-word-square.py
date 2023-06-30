@@ -5,15 +5,11 @@ class Solution:
         b
         c
         """
-        max_nrow = len(words)
-        max_ncol = max([len(w) for w in words])
-        for r in range(max_nrow):
-            for c in range(max_ncol):
-                has_char_1 = r < len(words) and c < len(words[r])
-                has_char_2 = c < len(words) and r < len(words[c])
-                if has_char_1 and has_char_2:
-                    if words[r][c] != words[c][r]:
-                        return False
-                elif has_char_1 or has_char_2:
+        for w_idx, word in enumerate(words):
+            for c_idx, char in enumerate(words[w_idx]):
+                # w_idx = 0, c_idx = 1
+                has_word_in_mirror_pos = c_idx < len(words) and w_idx < len(words[c_idx])
+                if not has_word_in_mirror_pos or words[w_idx][c_idx] != words[c_idx][w_idx]:
                     return False
         return True
+                
