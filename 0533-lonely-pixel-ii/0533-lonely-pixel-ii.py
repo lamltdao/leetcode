@@ -26,7 +26,6 @@ class Solution:
                 elif cur_row != picture[r_idx]:
                     row_same = False
                     break
-            print(c_idx, cur_row)
             if row_same and cur_row is not None: # all rows the same + at least 1 row has black pixel
                 ans += target
         return ans
