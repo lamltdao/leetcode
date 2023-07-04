@@ -16,8 +16,10 @@ class Solution:
             row_same = True
             cur_row = None
             for r_idx, r in enumerate(num_black_rows):
+                # only consider cell with black pixel
                 if picture[r_idx][c_idx] != 'B':
                     continue
+                # if row and col not contain target black pixels, there's no lonely pixels
                 if r != target:
                     row_same = False
                     break
