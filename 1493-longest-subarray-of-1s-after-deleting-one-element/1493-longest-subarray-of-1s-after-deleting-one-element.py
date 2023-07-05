@@ -12,6 +12,6 @@ class Solution:
                 has_zero = True
                 last_num_one = cur_num_one
                 cur_num_one = 0
-        if not has_zero:
+        if not has_zero: # edge: no zeros. Have to delete one '1'
             return len(nums)-1
         return ans
