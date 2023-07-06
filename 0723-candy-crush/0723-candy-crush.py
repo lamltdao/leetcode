@@ -3,7 +3,6 @@ class Solution:
         nrow = len(board)
         ncol = len(board[0])
         while True:
-            print(board)
             crush = [[False for _ in range(ncol)] for _ in range(nrow)]
             # check each row
             for r_idx, row in enumerate(board):
